@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { RootState } from "../../store";
 import { useSelector } from "react-redux";
 import { useState } from "react";
+import backgroundImg from "../../assets/pk5.png";
 
 export function Home() {
   const navigate = useNavigate();
@@ -29,6 +30,7 @@ export function Home() {
   return (
     <>
       <div className={styles.background}>
+        <img src={backgroundImg} className={styles.backgroundImage} alt="" />
         <CabecalhoVerde>
           {userData && <span style={{color:'#ffff', fontSize:'2rem'}}>{userData.nome}</span>}
         </CabecalhoVerde>
