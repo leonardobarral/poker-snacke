@@ -236,7 +236,7 @@ export function Table({ objectColors, onHoverClasses}: TableProps) {
               className={`${objectColors.B11 || styles.defaultStyle} ${
                 styles.defaultCelula
               }`}
-              onMouseEnter={() => handleMouseEnter(objectColors.B1)}
+              onMouseEnter={() => handleMouseEnter(objectColors.B11)}
               onMouseLeave={handleMouseLeave}
             >
               K4s
