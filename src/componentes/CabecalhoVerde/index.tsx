@@ -73,9 +73,9 @@ export default function CabecalhoVerde({ children }: CardProps) {
         <span
           className={style.sair}
           style={{ cursor: "pointer" }}
-          onClick={() => navigate("/register")}
+          onClick={() => navigate("/gerenciamento")}
         >
-          Criar Usuário
+          Gerenciamento
         </span>
       )}
     </div>
