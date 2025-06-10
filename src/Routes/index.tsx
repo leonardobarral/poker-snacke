@@ -5,8 +5,9 @@ import  Login  from "../screens/Login";
 import { Home } from "../screens/Home";
 import { Home_1 } from "../screens/Home_1";
 import { Home_2 } from "../screens/Home_2";
-import { PrivateRoute } from "./privateRoute"
+import { PrivateRoute } from "./privateRoute";
 import { Register } from "../screens/Register";
+import Gerenciamento from "../screens/Gerenciamento";
 
 export const RoutesApp = () => {
 //   const levelAccess = useSelector((state) => state.user.userData?.data?.acesso);
@@ -28,6 +29,7 @@ export const RoutesApp = () => {
             <Route path="/spin&go&reg" element={<Home_2/>} />
           </Route>
           <Route element={<PrivateRoute requiredLevels={["0"]}/>}>
+            <Route path="/gerenciamento" element={<Gerenciamento />} />
             <Route path="/register" element={<Register/>} />
           </Route>
           
