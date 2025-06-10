@@ -233,6 +233,7 @@ export function Table({ objectColors, onHoverClasses}: TableProps) {
               K5s
             </td>
             <td
+
               className={`${objectColors.B11 || styles.defaultStyle} ${
                 styles.defaultCelula
               }`}
@@ -241,6 +242,7 @@ export function Table({ objectColors, onHoverClasses}: TableProps) {
             >
               K4s
             </td>
+
             <td
               className={`${objectColors.B12 || styles.defaultStyle} ${
                 styles.defaultCelula
