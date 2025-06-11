@@ -6,6 +6,8 @@ export interface UserData {
   id: string;
   nome: string;
   dinamico: boolean;
+  data_ultimo_pagamento?: string | null;
+  status_ultimo_pagamento?: boolean;
   currentSession?: string | null;
 }
 
