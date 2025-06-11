@@ -19,7 +19,9 @@ export function ParseUserData(data: DocumentData): UserData {
     status: data.status,
     id: data.id,
     nome: data.nome,
-    dinamico:data.dinamico,
-    currentSession:data.currentSession||null,
+    dinamico: data.dinamico,
+    data_ultimo_pagamento: data.data_ultimo_pagamento || null,
+    status_ultimo_pagamento: data.status_ultimo_pagamento || false,
+    currentSession: data.currentSession || null,
   };
 }

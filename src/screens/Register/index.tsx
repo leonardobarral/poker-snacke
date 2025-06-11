@@ -76,6 +76,8 @@ export function Register() {
         status: true,
         currentSession: "",
         dinamico: true,
+        data_ultimo_pagamento: null,
+        status_ultimo_pagamento: false,
         dataCadastro: serverTimestamp()
       };
 
