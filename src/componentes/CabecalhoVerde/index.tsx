@@ -5,7 +5,7 @@ import { useAppSelector } from '../../hooks';
 import { clearUserData } from '../../slices';
 import { logout } from '../../slices/authSlice';
 import { auth, db } from '../../Server/firebase';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import style from './style.module.css';
 import { collection, getDocs, query, updateDoc, where } from 'firebase/firestore';
 
@@ -17,6 +17,7 @@ export default function CabecalhoVerde({ children }: CardProps) {
   const levelAccess = useAppSelector(state => state.user.levelAccess);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogout = async () => {
     // console.log("Saindo - 1");
@@ -73,9 +74,13 @@ export default function CabecalhoVerde({ children }: CardProps) {
         <span
           className={style.sair}
           style={{ cursor: "pointer" }}
-          onClick={() => navigate("/gerenciamento")}
+          onClick={() =>
+            location.pathname === "/gerenciamento"
+              ? navigate("/Home")
+              : navigate("/gerenciamento")
+          }
         >
-          Gerenciamento
+          {location.pathname === "/gerenciamento" ? "Home" : "Gerenciamento"}
         </span>
       )}
     </div>
