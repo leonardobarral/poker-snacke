@@ -75,6 +75,7 @@ export function Register() {
         nome,
         email,
         status: true,
+        cookieConsent: false,
         currentSession: "",
         dinamico: true,
         data_ultimo_pagamento: null,

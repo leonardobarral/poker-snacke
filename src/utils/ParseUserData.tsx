@@ -23,5 +23,6 @@ export function ParseUserData(data: DocumentData): UserData {
     data_ultimo_pagamento: data.data_ultimo_pagamento || null,
     status_ultimo_pagamento: data.status_ultimo_pagamento || false,
     currentSession: data.currentSession || null,
+    cookieConsent: data.cookieConsent || false,
   };
 }

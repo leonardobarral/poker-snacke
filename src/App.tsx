@@ -1,6 +1,7 @@
 import { RoutesApp } from './Routes';
 import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from './hooks';
+import CookieConsent from './componentes/CookieConsent';
 import { auth, db } from "./Server/firebase";
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { collection, query, where, getDocs, doc, getDoc
@@ -17,6 +18,9 @@ function App() {
   const dispatch = useAppDispatch();
   const [internalLoading, setInternalLoading] = useState(true);
   const { loading: authLoading, authChecked } = useAppSelector(state => state.auth);
+  const [showCookie, setShowCookie] = useState(() => {
+    return localStorage.getItem('cookieConsent') !== 'true';
+  });
 
   useEffect(() => {
     console.log("App carregado. Estado inicial:", authLoading);
@@ -136,7 +140,19 @@ function App() {
     return <Loading />;
   }
 
-  return <RoutesApp />;
+  return (
+    <>
+      {showCookie && (
+        <CookieConsent
+          onAccept={() => {
+            localStorage.setItem('cookieConsent', 'true');
+            setShowCookie(false);
+          }}
+        />
+      )}
+      <RoutesApp />
+    </>
+  );
 }
 
 export default App;
