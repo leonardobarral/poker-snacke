@@ -18,7 +18,8 @@ export function Register() {
     confirmarSenha: "",
     nome: "",
     nivel: "",
-    observacao: ""
+    observacao: "",
+    data_ultimo_pagamento: ""
   });
 
   const [showPassword, setShowPassword] = useState(false);
@@ -29,9 +30,9 @@ export function Register() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const { email, senha, confirmarSenha, nome, nivel, observacao } = formData;
+    const { email, senha, confirmarSenha, nome, nivel, observacao, data_ultimo_pagamento } = formData;
 
-    if (!email || !senha || !confirmarSenha || !nome || !nivel) {
+    if (!email || !senha || !confirmarSenha || !nome || !nivel || !data_ultimo_pagamento) {
       toast.warning("Preencha todos os campos obrigatórios.");
       return;
     }
@@ -85,6 +86,8 @@ export function Register() {
         id: uid,
         nivel,
         status: true,
+        status_ultimo_pagamento: true,
+        data_ultimo_pagamento,
         observacao,
         dataCadastro: serverTimestamp(),
         dataInicio: serverTimestamp(),
@@ -101,7 +104,8 @@ export function Register() {
         confirmarSenha: "",
         nome: "",
         nivel: "",
-        observacao: ""
+        observacao: "",
+        data_ultimo_pagamento: ""
       });
     } catch (error) {
       console.error("Erro ao cadastrar:", error);
@@ -199,6 +203,14 @@ export function Register() {
             placeholder="Observação"
             value={formData.observacao}
             setValue={(val: string) => handleChange("observacao", val)}
+          />
+        </div>
+        <div className={style.inputGroup}>
+          <InputText
+            type="date"
+            placeholder="Data de pagamento"
+            value={formData.data_ultimo_pagamento}
+            setValue={(val: string) => handleChange("data_ultimo_pagamento", val)}
           />
         </div>
         <div style={{ display: "flex", justifyContent: "space-between" ,width:"80%"}}>
